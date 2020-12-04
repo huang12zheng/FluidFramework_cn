@@ -1,36 +1,36 @@
 ## 快速入门
 在本快速入门中,我们将安装一个骰子辊fluid应用程序,并在计算机的
-本地主机我们已经在下面嵌入了具有两个客户端的应用程序实例.点击**滚动**
+本地宿主我们已经在下面嵌入了具有两个客户端的应用程序实例.点击**滚动**
 按钮,以查看两个客户端之间如何共享骰子状态.
 [quick-start example](https://fluidframework.com/docs/get-started/quick-start/)
-##设置您的开发环境
+## 设置您的开发环境
 
 首先,您需要安装以下软件.
 
 - [Node.js](https://nodejs.org/en/download)
 - 代码编辑器-我们建议使用[Visual Studio Code](https://code.visualstudio.com/).
 
-我们还建议您安装以下内容：
+我们还建议您安装以下内容:
 
 - [Git](https://git-scm.com/downloads)
 
-###安装fluid包装
+### 安装fluid包装
 
 对于此示例,我们的package.json中已经有必要的Fluid包.因此,当您运行`npm
 install`,它们将为您安装.但是,如果您想自己启动一个新项目,
 可以在文档的[Fluid API部分](https://fluidframework.com/apis/)获取标记的可用的软件包.
 
-要安装软件包,您可以采用以下格式：`npm i package-name`,如果您使用[npm](https://docs.npmjs.com/)或
+要安装软件包,您可以采用以下格式:`npm i package-name`,如果您使用[npm](https://docs.npmjs.com/)或
 如果使用[yarn](https://yarnpkg.com/),则使用`yarn add package-name`.
 
-在本教程中,我们使用以下Fluid软件包：
+在本教程中,我们使用以下Fluid软件包:
 
 -**@fluid框架/aqueduct**
 -**@fluidframework/get-tinylicious-container**
 -**@fluidframework/map**
 -**tinylicious**
   
->注意：Tinylicious只是开发依赖项,因为它是
+>注意:Tinylicious只是开发依赖项,因为它是
 开发您的Fluid应用程序时使用的[service](/concepts/service.md).您可以将其安装为开发依赖项,使用`npm i tinylicious --save-dev`或`yarn addtinylicious --dev'.
 
 ## 入门

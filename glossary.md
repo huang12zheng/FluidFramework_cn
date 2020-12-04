@@ -7,7 +7,7 @@
 
 [了解更多](https://fluidframework.com/apis/aqueduct/)
 
-##代码加载器(Code loader)
+## 代码加载器(Code loader)
 
 如果你的应用与你的容器是分开的,则Fluid可以使用代码加载器下载
 并动态加载容器代码包.
@@ -25,24 +25,24 @@
 aqueduct对Fluid对象的实现.旨在从你的设想出发,为DDS进行有意义的语义
 分组,以及为数据提供API表面.
 
-##分布式数据结构(Distributed data structures (DDSes))
+## 分布式数据结构(Distributed data structures (DDSes))
 
 DDS是Fluid Framework提供的用于存储协作数据的数据结构.当协作者修改数据时,
 更改将反映给所有其他协作者.
 
-##fluid装载机(Fluid loader)
+## fluid装载机(Fluid loader)
 
 负责连接到fluid服务并加载fluid容器.
 
-##fluid对象(Fluid object)
+## fluid对象(Fluid object)
 
 任何实现Fluid特征接口的JavaScript对象.
 
-##fluid服务(Fluid service)
+## fluid服务(Fluid service)
 
 一个服务端点,负责接收,处理,存储和广播操作.
 
-##fluid服务驱动程序(Fluid service driver)
+## fluid服务驱动程序(Fluid service driver)
 
 负责连接到Fluid服务的客户代码.
 

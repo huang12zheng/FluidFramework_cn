@@ -39,7 +39,7 @@ export function renderDiceRoller(div: HTMLDivElement) {
 
     const updateDiceChar = () => {
         const diceValue = 1;
-        // Unicode 0x2680-0x2685 are the sides of a die (⚀⚁⚂⚃⚄⚅).
+       //Unicode 0x2680-0x2685 are the sides of a die (⚀⚁⚂⚃⚄⚅).
         diceCharDiv.textContent = String.fromCodePoint(0x267F + diceValue);
         diceCharDiv.style.color = `hsl(${diceValue * 60}, 70%, 50%)`;
     };
@@ -67,7 +67,7 @@ export interface IDiceRoller extends EventEmitter {
 该活动特别重要,因为我们正在建立协作体验.每个客户都会这样
 观察到其他客户端已远程滚动骰子,因此他们知道要使用新值进行更新.
 
-##实施模型
+## 实施模型
 
 到目前为止,我们一直在使用TypeScript.现在,我们正在为我们的协作实施模型
 DiceRoller,我们将开始使用Fluid Framework中的功能.
@@ -82,7 +82,7 @@ this.root.set(diceValueKey,1);
 }
 
 受保护的具有hasInitialized(){
-this.root.on("valueChanged",(已更改：IValueChanged)=> {
+this.root.on("valueChanged",(已更改:IValueChanged)=> {
 如果(changed.key === diceValueKey){
 this.emit("diceRolled");
 }
@@ -133,14 +133,14 @@ export const DiceRollerInstantiationFactory = new DataObjectFactory(
 就是这样-我们的DiceRoller模型完成了！
 
 
-##定义容器内容
+## 定义容器内容
 
 在我们的应用程序中,我们只需要单个骰子的单个模型的单个实例.但是,在更复杂的情况下
 我们可能有多种模型类型和许多模型实例.您将编写以指定代码类型和数量的代码
 您的应用程序使用的数据对象是"容器代码".
 
 由于我们只需要一个模具,因此Fluid Framework提供了一个名为
-[ContainerRuntimeFactoryWithDefaultDataStore](https://fluidframework.com/apis/aqueduct/containerruntimefactorywithdefaultdatastore/)可用作容器代码.我们给它两个参数：
+[ContainerRuntimeFactoryWithDefaultDataStore](https://fluidframework.com/apis/aqueduct/containerruntimefactorywithdefaultdatastore/)可用作容器代码.我们给它两个参数:
 我们想要单个实例的模型工厂的类型,以及我们的容器代码的模型类型的列表
 需求(在这种情况下,仅是单个模型类型).此列表称为"容器注册表".
 
@@ -156,7 +156,7 @@ export const DiceRollerContainerRuntimeFactory = new ContainerRuntimeFactoryWith
 现在我们已经定义了所有部分,现在是时候将它们放在一起了！
 
 
-##将容器连接到服务以进行协作
+## 将容器连接到服务以进行协作
 
 为了协调协作,我们需要连接到服务以发送和接收数据更新.方式
 我们这样做是为了将[Fluid container](concepts/containers-runtime/)对象连接到服务,然后将我们的容器代码加载到其中.
@@ -179,7 +179,7 @@ const container =
 
 连接了"Container"对象后,我们的容器代码将已经运行以创建我们的实例
 模型.因为我们使用了"ContainerRuntimeFactoryWithDefaultDataStore"来构建容器代码,所以我们也可以使用
-辅助函数Fluid提供了名为"getDefaultObjectFromContainer"的功能,以获取对模型实例的引用：
+辅助函数Fluid提供了名为"getDefaultObjectFromContainer"的功能,以获取对模型实例的引用:
 
 ```ts
 const diceRoller: IDiceRoller = await getDefaultObjectFromContainer<IDiceRoller>(container);
@@ -202,24 +202,24 @@ export function renderDiceRoller(diceRoller: IDiceRoller, div: HTMLDivElement) {
     rollButton.style.fontSize = "50px";
     rollButton.textContent = "Roll";
 
-    // Call the roll method to modify the shared data when the button is clicked.
+   //Call the roll method to modify the shared data when the button is clicked.
     rollButton.addEventListener("click", diceRoller.roll);
     wrapperDiv.append(diceCharDiv, rollButton);
 
-    // Get the current value of the shared data to update the view whenever it changes.
+   //Get the current value of the shared data to update the view whenever it changes.
     const updateDiceChar = () => {
-        // Unicode 0x2680-0x2685 are the sides of a die (⚀⚁⚂⚃⚄⚅).
+       //Unicode 0x2680-0x2685 are the sides of a die (⚀⚁⚂⚃⚄⚅).
         diceCharDiv.textContent = String.fromCodePoint(0x267F + diceRoller.value);
         diceCharDiv.style.color = `hsl(${diceRoller.value * 60}, 70%, 50%)`;
     };
     updateDiceChar();
 
-    // Use the diceRolled event to trigger the re-render whenever the value changes.
+   //Use the diceRolled event to trigger the re-render whenever the value changes.
     diceRoller.on("diceRolled", updateDiceChar);
 }
 ```
 
-##运行应用
+## 运行应用
 
 此时,我们可以运行我们的应用程序了. [此应用程序的完整代码是
 可用](https://github.com/microsoft/FluidHelloWorld)供您试用.尝试在多个浏览器窗口中打开它查看客户端之间反映的变化.
