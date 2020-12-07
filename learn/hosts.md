@@ -12,7 +12,7 @@ fluid加载器使用插件模型.
 如果您的应用程序或网站将加载Fluid容器,那么您则需要使用
 fluid装载机来创建Fluid宿主,！
 
-如果您要构建Fluid容器,并且不会使用Fluid来构建独立的应用程序,则可能你~~有兴趣~~(需要)了解fluid加载器.fluid加载器包括容器使用使用的~~功能~~(能力),例如宿主示波器(host scopes).
+如果您要构建Fluid容器,并且不会使用Fluid来构建独立的应用程序,则可能你~~有兴趣~~(需要)了解fluid加载器.fluid加载器包括容器使用的~~功能~~(能力),例如宿主示波器(host scopes).
 
 您可能还希望将Fluid容器作为 一个独立的网站 的宿主
 (host your Fluid container on a standalone website)
@@ -85,7 +85,7 @@ const resolvedUrl: IFluidResolvedUrl = {
 
 ### 范围(Scopes)
 
-Scopes允许容器 通过宿主上 访问资源.例如,宿主可以访问 容器代码 无法访问的 授权上下文(因为容器代码无法被信任).宿主可以为联合容器提供Scopes访问安全资源.
+Scopes允许容器 通过宿主 访问资源.例如,宿主可以访问 容器代码 无法访问的 授权上下文(因为容器代码无法被信任).宿主可以为联合容器提供Scopes以访问安全资源(??).
 
 ## 处理回应
 
