@@ -4,7 +4,7 @@
 
 ## @fluidframework/aqueduct软件包
 
-Aqueduct库在核心Fluid Framework接口上提供了一个薄层,旨在帮助开发人员快速入门fluid开发.
+Aqueduct库在核心的Fluid Framework接口上提供了一个薄层,旨在帮助开发人员快速入门fluid开发.
 
 您不必使用Aqueduct库.它是在Fluid框架基础之上构建的抽象层的示例,它专注于简化Fluid开发,因此,您可以选择直接使用Fluid,而不是它.
 
@@ -24,8 +24,8 @@ class MyDataObject extends DataObject implements IFluidHTMLView { }
 ### `root` SharedDirectory
 
 DataObject具实质是`SharedDirectory`的`root`属性.通常,在DataObject初始化期间构造期间,您可以创建任何其他分布式数据.并且,
-正如所说的,在根目录的共享目录(SharedDirectory)中,
-将句柄存储到其他分布式数据.
+~~正如所说的~~,能将句柄存储到在根共享目录(SharedDirectory)中的其他分布式数据(结构),
+.
 
 ### DataObject生命周期
 
@@ -56,7 +56,9 @@ protected async hasInitialized(): Promise<void> { }
 
 #### initializingFirstTime
 
-"initializingFirstTime"仅被调用一次.它仅由第一个客户端打开DataObject时执行,并且 在数据对象加载之前,执行完成.您应该实现此方法来实现 执行设置,其中可以包括创建分布式数据结构并使用初始数据填充它们.根SharedDirectory可用于
+"initializingFirstTime"仅被调用一次.它仅由第一次客户端创建DataObject才会执行,并且 在数据对象加载之前执行完,
+.
+您应该实现此方法来实现 执行启动设置,其中可以包括创建分布式数据结构并使用初始数据填充它们.根SharedDirectory可用于
 这种方法.
 
 以下是Badge DataObject的示例:
@@ -91,15 +93,15 @@ protected async initializingFirstTime() {
 
 #### initializingFromExisting
 
-每次首次加载DataObject时都会调用`initializingFromExisting`方法.
-创建.请注意,您不需要实现此方法,以便将数据加载到分布式数据结构中.
+除了首次~~创建~~(加载),每次加载DataObject时都会调用`initializingFromExisting`方法.
+创建.请注意,您不需要实现此方法,以便~~将数据加载到分布式数据结构中~~在分布式数据结构中载入数据.
 (因为)在初始化过程中,已经存储在DDS中的数据会自动加载到本地客户端的DDS中.(您)不需要(编写代码来)实现的单独的加载事件.
 
 在简单的情况下,您可能不需要实现此方法,因为会自动加载数据,并且您将使用"initializingFirstTime"来初始创建数据模型.但是,随着数据模型的更改,此方法可以提供一个入口点来让您可以运行升级或放置你需要的模式迁移代码.
 
 #### hasInitialized
 
-"hasInitialized"方法称为"每个时间",即DataObject被加载.
+"hasInitialized"方法在DataObject每次被加载时调用.
 此方法的一种常见用法是隐藏对分布式数据结构的本地引用,以便可以在同步代码中使用它们(本地引用).请回想一下,DDS检索值始终是异步操作,因此只能在异步功能中检索它们. hasInitialized在下面的示例中实现此目的.
 
 ```ts

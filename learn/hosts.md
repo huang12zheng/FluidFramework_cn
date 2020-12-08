@@ -1,8 +1,8 @@
-# 宿主
+# 宿主和加载器
 Fluid加载器是Fluid Framework的关键部分之一.开发人员在应用程序内部使用fluid加载器来 
 加载fluid容器并 启动与fluid服务之间的通信.
 
-"fluid宿主"是 使用fluid加载器加载fluid容器的 任何应用程序.
+"fluid宿主"是 指 使用fluid加载器加载fluid容器的 任何应用程序.
 
 fluid加载器使用插件模型.
 
@@ -18,7 +18,7 @@ fluid装载机来创建Fluid宿主,！
 (host your Fluid container on a standalone website)
 
 
-## 摘要
+## 总结
 
 fluid加载器加载fluid容器,是通过连接到fluid服务来 获取fluid容器代码(来实现的).从一个从系统架构的角度来看,fluid加载器位于fluid服务和fluid容器之间.
 
@@ -27,8 +27,9 @@ fluid加载器加载fluid容器,是通过连接到fluid服务来 获取fluid容�
 fluid加载器的用途非常广泛.为了保持通用性,加载器使用插件模型.随着
 正确的插件(驱动程序,处理程序,解析器),Fluid loader将适用于任何有线协议和任何服务的实现.
 
-加载器模仿现有的Web协议.类似于浏览器从网站请求状态和应用逻辑(网站)的方式
-Web服务器上,Fluid宿主使用加载器从Fluid服务请求[Fluid容器](./containers-runtime.md).
+类似于浏览器通从Web服务器上
+请求状态和应用逻辑(网站)的方式,加载器模仿现有的Web协议.
+,Fluid宿主使用加载器从Fluid服务请求[Fluid容器](./containers-runtime.md).
 
 ## 宿主职责
 
@@ -76,7 +77,7 @@ const resolvedUrl: IFluidResolvedUrl = {
 
 加载器使用Fluid Service驱动程序连接到Fluid Service.
 
-尽管许多开发人员一次只加载一个容器,但是考虑如何加载 存储在不同Fluid服务上 的 两个容器 会很有趣. 为了跟踪服务,加载器 使用URL解析器中的协议,以识别用于Fluid服务的正确Fluid服务驱动.
+尽管许多开发人员一次只加载一个容器,但是考虑如何加载 存储在不同Fluid服务上 的 两个容器 会很有趣. 为了跟踪服务,加载器 使用被解析URL中的协议,以识别用于Fluid服务的正确Fluid服务驱动.
 
 ### 代码加载器
 
