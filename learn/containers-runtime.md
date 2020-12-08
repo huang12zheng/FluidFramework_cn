@@ -1,5 +1,5 @@
 # 容器 与 容器运行时
-fluid容器是一个基本概念.是指使用Fluid Framework的创建的任何东西.
+对于用Fluid Framework的创建的任何东西,fluid容器都是一个基本概念.
 应用程序使用Fluid容器来管理用户体验,应用程序逻辑和应用程序状态.
 
 但是,Fluid容器不是独立的应用程序.fluid容器是_code-plus-data package_.一种
@@ -35,8 +35,8 @@ fluid容器与[进程和分配操作](./hosts.md)交互,来管理[fluid的生命
 当fluid加载器解析fluid容器时,它将一组服务驱动程序传递给该容器.这些驱动
 是** DeltaConnection**,** DeltaStorageService**和** DocumentStorageService**.
 
-Fluid容器包含用于处理DeltaConnection中的操作的代码,以弥补错过的操作
-使用DeltaStorageService,并从DocumentStorageService创建或获取摘要.这些都是
+Fluid容器包含代码来用DeltaConnection处理操作,来使用DeltaStorageService弥补错过的操作
+,并用DocumentStorageService创建或获取摘要.这些都是
 很重要,但最关键的是**运算处理**.
 
 fluid容器负责将操作传递给相关的分布式数据结构和fluid对象.
