@@ -1,4 +1,4 @@
-## 基级
+## 基础
 [结构](learn/articheture.md)
 
 [分布式数据结构](learn/dds.md)
